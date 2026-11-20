@@ -4,12 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <%= title %>
+
     </title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1><%= title %></h1>
-    Hello EJS!
+    <h1>Foglalások</h1>
+
+    <section>
+        <h2>Új foglalás</h2>
+        <% if(locals.success){ %>
+            <p class="success"><%= success %></p>
+        <% } %>
+        <% if(locals.error){ %>
+            <p class="error"><%= error %></p>
+        <% } %>
+
+        <form action="/" method="post">
+            <label for="name">Add meg a nevedet</label><br>
+            <input type="text" name="name" id="name" required><br>
+
+            <label for="email">Add meg az email címed</label><br>
+            <input type="text" name="email" id="email" placeholder="abc@def.hu" required><br>
+
+            <label for="startDate">Dátum</label><br>
+            <input type="date" name="startDate" id="startDate" required><br>
+
+            <label for="guests">Add meg a vendégek számát</label><br>
+            <input type="number" name="guests" id="guests" min="1" max="10" required><br>
+
+            <button type="submit">Hozzáad</button>
+
+        </form>
+    </section>
+
+    
+    
 </body>
 </html>
